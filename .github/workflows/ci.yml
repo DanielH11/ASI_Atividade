@@ -1,0 +1,14 @@
+name: Python Unit Tests
+on: [push]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            -uses: actions/checkout@v4
+            -name: configurando o Python
+            uses: actions/setup-python@v5
+            with:
+                python-verion: '3.10'
+                architecture: 'x64'
+            -name: instalando o converage
+            run: python -m unittest discover
